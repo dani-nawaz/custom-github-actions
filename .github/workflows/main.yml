@@ -1,0 +1,18 @@
+name: Install Strong-opx
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Strong-opx
+        run: |
+            git clone https://git@github.com:dsquare-io/strong-opx.git
+            cd strong-opx
+            make
+            sudo make install
